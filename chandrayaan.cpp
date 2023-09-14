@@ -1,85 +1,85 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
 
 int main() {
     int x = 0, y = 0, z = 0;
     
-    char d = 'N';
+    char direction = 'N';
     char commands[] = {'f','r','u','b','l'};
     char prev = '0';
 
     for (char command : commands) {
             
         if (command == 'f') {
-            if (d == 'N') y++;
-            else if (d == 'S') y--;
-            else if (d == 'E') x++;
-            else if (d == 'W') x--;
-            else if (d == 'U') z++;
-            else if (d == 'D') z--;
+            if (direction == 'N') y++;
+            else if (direction == 'S') y--;
+            else if (direction == 'E') x++;
+            else if (direction == 'W') x--;
+            else if (direction == 'U') z++;
+            else if (direction == 'D') z--;
         }
         else if (command == 'b') {
-            if (d == 'N') y--;
-            else if (d == 'S') y++;
-            else if (d == 'E') x--;
-            else if (d == 'W') x++;
-            else if (d == 'U') z--;
-            else if (d == 'D') z++;
+            if (direction == 'N') y--;
+            else if (direction == 'S') y++;
+            else if (direction == 'E') x--;
+            else if (direction == 'W') x++;
+            else if (direction == 'U') z--;
+            else if (direction == 'D') z++;
         }
         else if (command == 'l') {
-            prev = d;
-            if (d == 'N') d = 'W';
-            else if (d == 'S') d = 'E';
-            else if (d == 'E') d = 'N';
-            else if (d == 'W') d = 'S';
+            prev = direction;
+            if (direction == 'N') direction = 'W';
+            else if (direction == 'S') direction = 'E';
+            else if (direction == 'E') direction = 'N';
+            else if (direction == 'W') direction = 'S';
             else {
                 if(prev=='E')
-                    d = 'N';
+                    direction = 'N';
                 else if(prev=='N')
-                    d = 'W';
+                    direction = 'W';
                 else if(prev=='W') 
-                    d = 'S';
+                    direction = 'S';
                 else if(prev=='S')
-                    d = 'E';
+                    direction = 'E';
             }
         }
         else if (command == 'r') {
-            prev = d;
-            if (d == 'N') d = 'E';
-            else if (d == 'S') d = 'W';
-            else if (d == 'E') d = 'S';
-            else if (d == 'W') d = 'N';
+            prev = direction;
+            if (direction == 'N') direction = 'E';
+            else if (direction == 'S') direction = 'W';
+            else if (direction == 'E') direction = 'S';
+            else if (direction == 'W') direction = 'N';
             else {
                 if(prev=='E')
-                    d = 'S';
+                    direction = 'S';
                 else if(prev=='N')
-                    d = 'E';
+                    direction = 'E';
                 else if(prev=='W') 
-                    d = 'N';
+                    direction = 'N';
                 else if(prev=='S')
-                    d = 'W';
+                    direction = 'W';
             }
         }
         else if (command == 'u'){
-            if (d=='N' or d=='S' or d=='E' or d=='W')
-                d = 'U';
-            else if(d=='U') 
-                d = 'S';
-            else if(d=='D')
-                d = 'N';
+            if (direction=='N' or direction=='S' or direction=='E' or direction=='W')
+                direction = 'U';
+            else if(direction=='U') 
+                direction = 'S';
+            else if(direction=='D')
+                direction = 'N';
         }
         else{
-            if (d=='N' or d=='S' or d=='E' or d=='W')
-                d = 'D';
-            else if(d=='U') 
-                d = 'N';
-            else if(d=='D')
-                d = 'S';
+            if (direction=='N' or direction=='S' or direction=='E' or direction=='W')
+                direction = 'D';
+            else if(direction=='U') 
+                direction = 'N';
+            else if(direction=='D')
+                direction = 'S';
         }
     }
 
-    std::cout << "Final Position: (" << x << ", " << y << ", " << z << ")\n";
-    std::cout << "Final Direction: " << d << "\n";
+    cout << "Final Position: (" << x << ", " << y << ", " << z << ")\n";
+    cout << "Final direction: " << direction << "\n";
 
     return 0;
 }
